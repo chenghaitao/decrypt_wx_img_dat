@@ -112,7 +112,7 @@ struct.unpack("<6sLLx", header)
 最终重组：
 
 $$
-\text{result} = \text{AES\_decrypt}(\text{aes\_data}) \;+\; \text{raw\_data} \;+\; (\text{xor\_data} \oplus \text{xor\_key})
+\text{result} = \text{AES_decrypt}(\text{aes_data}) \;+\; \text{raw_data} \;+\; (\text{xor_data} \oplus \text{xor_key})
 $$
 
 ### XOR 密钥的尾部推导
@@ -120,13 +120,13 @@ $$
 JPEG 正常以 `FF D9`（EOI 标记）结尾，因此可利用末尾两个字节反推密钥：
 
 $$
-\text{xor\_key} = \text{data}[-2] \oplus \text{0xFF}
+\text{xor_key} = \text{data}\left[-2\right] \oplus \text{0xFF}
 $$
 
 并用末字节校验：
 
 $$
-\text{data}[-1] \oplus \text{0xD9} \stackrel{?}{=} \text{xor\_key}
+\text{data}\left[-1\right] \oplus \text{0xD9} \stackrel{?}{=} \text{xor_key}
 $$
 
 ### JPEG 尾部元数据页脚
